@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Demystified</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter (as requested, or Poppins/Montserrat could also be used) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- My Css Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="leading-relaxed">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-parallax min-h-screen w-full flex flex-col items-center justify-center text-white text-center px-4 pt-6 pb-8 md:px-8 md:pt-12 md:pb-16">
+      <div class="w-full max-w-screen-xl p-4 md:p-6 lg:p-8 rounded-lg">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Mastering DevOps: From Code to Cloud</h1>
+            <p class="text-lg md:text-xl mb-8">Unlock the secrets of efficient software delivery, collaboration, and automation.</p>
+
+            <!-- Section Links in Hero -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 mt-8 justify-center items-center">
+              <a href="#fundamentals" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-lightbulb mr-3"></i>Fundamentals
+              </a>
+              <a href="#cicd" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-sync-alt mr-3"></i>CI/CD
+              </a>
+              <a href="#monolith-microservices" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-cubes mr-3"></i>Architectures
+              </a>
+              <a href="#containerization" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-box-open mr-3"></i>Containerization
+              </a>
+              <a href="#orchestration" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-project-diagram mr-3"></i>Orchestration
+              </a>
+              <a href="#iac" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-code mr-3"></i>IaC
+              </a>
+              <a href="#monitoring-logging" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-chart-line mr-3"></i>Monitoring
+              </a>
+              <a href="#security-compliance" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-shield-alt mr-3"></i>Security
+              </a>
+              <a href="#cloud-providers" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-cloud mr-3"></i>Cloud Providers
+              </a>
+              <a href="#version-control" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-code-branch mr-3"></i>Version Control
+              </a>
+              <a href="#automation-scripting" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-robot mr-3"></i>Automation
+              </a>
+              <a href="#release-management" class="w-full max-w-xs min-w-[10rem] hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-rocket mr-3"></i>Release
+              </a>
+              <a href="#case-studies" class="w-full max-w-xs min-w-[10rem] sm:col-start-2 lg:col-start-2 hero-link bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 flex items-center justify-center text-base md:text-lg">
+                <i class="fas fa-briefcase mr-3"></i>Case Studies
+              </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 md:px-8 lg:px-16 py-8">
+
+        <!-- 1. DevOps Fundamentals -->
+        <section id="fundamentals" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-lightbulb text-blue-500 mr-4"></i>DevOps Fundamentals</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">What is DevOps?</h3>
+                    <p class="mb-4">DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality. DevOps is about cultural change, automation, collaboration, and integration across all phases of the software delivery pipeline.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">DevOps Culture: CAMs</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Collaboration:</strong> Breaking down silos between development, operations, and other teams.</li>
+                        <li><strong>Automation:</strong> Automating repetitive tasks across the entire SDLC, from testing to deployment.</li>
+                        <li><strong>Measurement:</strong> Tracking key metrics (e.g., deployment frequency, lead time, mean time to recovery) to identify bottlenecks and improve processes.</li>
+                        <li><strong>Sharing:</strong> Sharing knowledge, tools, and best practices across teams to foster continuous learning and improvement.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">SDLC vs DevOps Lifecycle</h3>
+                <p class="mb-4">Traditional SDLC (Software Development Life Cycle) often involves distinct, sequential phases with handoffs between teams, leading to slower delivery and potential communication gaps. The DevOps lifecycle, in contrast, is a continuous loop emphasizing iteration, feedback, and automation across all stages.</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="bg-gray-100 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                                <th class="py-3 px-4 border-b">Feature</th>
+                                <th class="py-3 px-4 border-b">Traditional SDLC</th>
+                                <th class="py-3 px-4 border-b">DevOps Lifecycle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 border-b">Phases</td>
+                                <td class="py-3 px-4 border-b">Sequential (Plan, Design, Implement, Test, Deploy, Maintain)</td>
+                                <td class="py-3 px-4 border-b">Continuous (Plan, Code, Build, Test, Release, Deploy, Operate, Monitor)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 border-b">Team Interaction</td>
+                                <td class="py-3 px-4 border-b">Siloed, Handoffs</td>
+                                <td class="py-3 px-4 border-b">Collaborative, Integrated</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 border-b">Delivery Speed</td>
+                                <td class="py-3 px-4 border-b">Slower, Infrequent</td>
+                                <td class="py-3 px-4 border-b">Faster, Frequent</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 border-b">Feedback Loop</td>
+                                <td class="py-3 px-4 border-b">Delayed</td>
+                                <td class="py-3 px-4 border-b">Continuous, Early</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 border-b">Automation</td>
+                                <td class="py-3 px-4 border-b">Limited</td>
+                                <td class="py-3 px-4 border-b">Extensive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. CI/CD -->
+        <section id="cicd" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-sync-alt text-blue-500 mr-4"></i>Continuous Integration & Delivery (CI/CD)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Concepts: CI, CD (Delivery & Deployment)</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Continuous Integration (CI):</strong> Developers frequently merge their code changes into a central repository, after which automated builds and tests are run.</li>
+                        <li><strong>Continuous Delivery (CD):</strong> Ensures that code changes are automatically built, tested, and prepared for release to production. It ensures that you can release new changes to your customers rapidly and sustainably.</li>
+                        <li><strong>Continuous Deployment (CD):</strong> An extension of Continuous Delivery, where every change that passes all stages of the production pipeline is released to production automatically, without human intervention.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Tools</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Jenkins:</strong> Open-source automation server for building, testing, and deploying software.</li>
+                        <li><strong>GitLab CI/CD:</strong> Integrated CI/CD solution within GitLab, using YAML for pipeline definitions.</li>
+                        <li><strong>GitHub Actions:</strong> Event-driven automation platform directly integrated with GitHub repositories.</li>
+                        <li><strong>CircleCI:</strong> Cloud-based CI/CD platform known for its speed and ease of use.</li>
+                        <li><strong>ArgoCD:</strong> Declarative GitOps continuous delivery tool for Kubernetes.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Example CI/CD YAML Pipeline (GitHub Actions)</h3>
+                <pre><code class="language-yaml">
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Build application
+      run: npm run build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: build/ # Assuming 'build' directory contains compiled app
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment: production # Define an environment for deployment
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: build-output
+        path: ./app-dist
+
+    - name: Deploy to server (example using rsync)
+      run: |
+        echo "Deploying application to production server..."
+        # Replace with actual deployment commands (e.g., rsync, kubectl apply, etc.)
+        # rsync -avz ./app-dist/ user@your-server:/var/www/html/
+        echo "Deployment complete!"
+                </code></pre>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Canary vs Blue-Green Deployment Strategies</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Canary Deployment:</strong> A new version of the application (the "canary") is rolled out to a small subset of users. If no issues are detected, it's gradually rolled out to the rest of the users. This minimizes risk and allows for real-world testing.</li>
+                    <li><strong>Blue-Green Deployment:</strong> Two identical production environments exist: "Blue" (current live version) and "Green" (new version). Traffic is switched from Blue to Green once the Green environment is fully tested and ready. This provides zero-downtime deployment and easy rollback by switching traffic back to Blue.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Monolith vs Microservices -->
+        <section id="monolith-microservices" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-cubes text-blue-500 mr-4"></i>Monolith vs Microservices</h2>
+            <div class="overflow-x-auto mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Architecture Comparison</h3>
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <thead>
+                        <tr class="bg-gray-100 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            <th class="py-3 px-4 border-b">Feature</th>
+                            <th class="py-3 px-4 border-b">Monolithic Architecture</th>
+                            <th class="py-3 px-4 border-b">Microservices Architecture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Structure</td>
+                            <td class="py-3 px-4 border-b">Single, tightly coupled unit</td>
+                            <td class="py-3 px-4 border-b">Collection of small, independent services</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Development</td>
+                            <td class="py-3 px-4 border-b">Slower for large teams, single codebase</td>
+                            <td class="py-3 px-4 border-b">Faster for large teams, independent development</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Deployment</td>
+                            <td class="py-3 px-4 border-b">Deploy entire application for any change</td>
+                            <td class="py-3 px-4 border-b">Deploy individual services independently</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Scalability</td>
+                            <td class="py-3 px-4 border-b">Scale entire application, often inefficient</td>
+                            <td class="py-3 px-4 border-b">Scale individual services based on demand</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Technology Stack</td>
+                            <td class="py-3 px-4 border-b">Single technology stack</td>
+                            <td class="py-3 px-4 border-b">Polyglot persistence, diverse technologies</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 border-b">Fault Isolation</td>
+                            <td class="py-3 px-4 border-b">Failure in one part can affect entire app</td>
+                            <td class="py-3 px-4 border-b">Failure in one service typically isolated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">When to use Microservices</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>For large, complex applications that need to evolve rapidly.</li>
+                        <li>When different parts of the application have varying scaling requirements.</li>
+                        <li>When multiple independent teams need to work on different parts of the system concurrently.</li>
+                        <li>To leverage diverse technology stacks for different functionalities.</li>
+                        <li>When fault isolation is critical to overall system resilience.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Service Discovery and API Gateway</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Service Discovery:</strong> In a microservices architecture, services need to find and communicate with each other. Service discovery mechanisms (e.g., Eureka, Consul, Kubernetes DNS) help services locate each other dynamically.</li>
+                        <li><strong>API Gateway:</strong> A single entry point for all client requests to a microservices system. It handles request routing, composition, and protocol translation. Examples include Kong and Istio (which is a service mesh, offering API Gateway capabilities among others).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Containerization -->
+        <section id="containerization" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-box-open text-blue-500 mr-4"></i>Containerization</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Docker Basics</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Image:</strong> A lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, system tools, system libraries, and settings.</li>
+                        <li><strong>Container:</strong> A runnable instance of an image. Containers are isolated from each other and the host system, but can communicate through defined channels.</li>
+                        <li><strong>Volume:</strong> A mechanism for persisting data generated by and used by Docker containers. Volumes are preferred over bind mounts for most use cases because they are fully managed by Docker.</li>
+                        <li><strong>Network:</strong> Docker networking allows containers to communicate with each other and with the outside world. Docker provides several networking drivers (bridge, host, overlay, etc.).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Best Practices for Writing Dockerfiles</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Use a small base image (e.g., Alpine Linux).</li>
+                        <li>Use multi-stage builds to separate build-time dependencies from runtime dependencies.</li>
+                        <li>Leverage Docker's build cache effectively.</li>
+                        <li>Minimize the number of layers.</li>
+                        <li>Copy only necessary files.</li>
+                        <li>Use `.dockerignore` to exclude unnecessary files.</li>
+                        <li>Run as a non-root user.</li>
+                        <li>Define explicit `CMD` or `ENTRYPOINT`.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Docker Compose Usage</h3>
+                <p class="mb-4">Docker Compose is a tool for defining and running multi-container Docker applications. You use a YAML file to configure your application's services, networks, and volumes, then use a single command to start everything up.</p>
+                <pre><code class="language-yaml">
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+                </code></pre>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Container Registry Examples</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>DockerHub:</strong> The world's largest library and community for container images.</li>
+                    <li><strong>AWS ECR (Elastic Container Registry):</strong> A fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.</li>
+                    <li><strong>Google Container Registry (GCR)/Artifact Registry:</strong> Google Cloud's service for storing and managing container images.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. Orchestration -->
+        <section id="orchestration" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-project-diagram text-blue-500 mr-4"></i>Orchestration</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Kubernetes Core Concepts</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Pods:</strong> The smallest deployable units of computing that can be created and managed in Kubernetes. A Pod typically contains one or more containers.</li>
+                        <li><strong>Deployments:</strong> Manages a replicated set of Pods. It provides declarative updates to Pods and ReplicaSets.</li>
+                        <li><strong>Services:</strong> An abstract way to expose an application running on a set of Pods as a network service.</li>
+                        <li><strong>Ingress:</strong> An API object that manages external access to the services in a cluster, typically HTTP.</li>
+                        <li><strong>ConfigMap:</strong> Used to store non-confidential data in key-value pairs.</li>
+                        <li><strong>Secrets:</strong> Used to store sensitive information, such as passwords, OAuth tokens, and ssh keys.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Helm (Kubernetes Package Manager)</h3>
+                    <p class="mb-4">Helm helps you manage Kubernetes applications. Helm Charts are packages of pre-configured Kubernetes resources. Helm simplifies the deployment and management of complex applications on Kubernetes.</p>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Minikube vs EKS/GKE/AKS</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Minikube:</strong> A tool that runs a single-node Kubernetes cluster on your local machine, ideal for development and testing.</li>
+                        <li><strong>EKS (AWS Elastic Kubernetes Service), GKE (Google Kubernetes Engine), AKS (Azure Kubernetes Service):</strong> Managed Kubernetes services offered by major cloud providers. They handle the control plane management, making it easier to run production-grade clusters.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Kubernetes Observability</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Metrics:</strong> Quantitative data about the behavior of a system (e.g., CPU usage, memory consumption, request latency). Prometheus is a common tool for collecting and storing metrics.</li>
+                    <li><strong>Logs:</strong> Timestamped records of events that happen within a system. Tools like Fluentd, Loki, and the ELK stack are used for log aggregation and analysis.</li>
+                    <li><strong>Tracing:</strong> Following the path of a single request as it propagates through multiple services in a distributed system. Tools like Jaeger and Zipkin are used for distributed tracing.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Infrastructure as Code (IaC) -->
+        <section id="iac" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-code text-blue-500 mr-4"></i>Infrastructure as Code (IaC)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Tools</h3>
+                    <ul class="list-disc list-inside space-y-2 break-words">
+                        <li><strong>Terraform:</strong> An open-source IaC tool by HashiCorp that allows you to define and provision infrastructure using a declarative configuration language (HCL). Supports multiple cloud providers.</li>
+                        <li><strong>AWS CloudFormation:</strong> AWS's native IaC service for modeling and provisioning AWS resources.</li>
+                        <li><strong>Pulumi:</strong> An open-source IaC tool that allows you to define infrastructure using familiar programming languages (Python, JavaScript, TypeScript, Go, C#).</li>
+                    </ul>
+                </div>
+                <div class="overflow-x-auto">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Sample AWS Provisioning using Terraform (EC2 Instance)</h3>
+                    <pre><code class="language-hcl">
+# main.tf
+provider "aws" {
+  region = "us-east-1" # Or your desired region
+}
+
+resource "aws_instance" "web_server" {
+  ami           = "ami-053b0d53c279acc91" # Example AMI for Amazon Linux 2 in us-east-1
+  instance_type = "t2.micro"
+  tags = {
+    Name = "DevOps-Demo-WebServer"
+  }
+}
+                    </code></pre>
+                    <p class="text-sm text-gray-600 mt-2">Run <code>terraform init</code>, <code>terraform plan</code>, and <code>terraform apply</code> to provision this.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Monitoring & Logging -->
+        <section id="monitoring-logging" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-chart-line text-blue-500 mr-4"></i>Monitoring & Logging</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Monitoring Tools</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Grafana:</strong> An open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.</li>
+                        <li><strong>Prometheus:</strong> An open-source monitoring system with a dimensional data model, flexible query language (PromQL), and powerful alerting capabilities. Often used as a data source for Grafana.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Logging</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Loki:</strong> A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. It focuses on storing logs as streams and querying them using labels.</li>
+                        <li><strong>Fluentd:</strong> An open-source data collector for unified logging layer. It allows you to collect, parse, transform, and output logs to various destinations.</li>
+                        <li><strong>Promtail:</strong> An agent that ships the contents of local logs to a private Loki instance or Grafana Cloud.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">ELK Stack</h3>
+                <p class="mb-4">The ELK Stack is a collection of three open-source products: Elasticsearch, Logstash, and Kibana. It's commonly used for centralized logging, allowing you to search, analyze, and visualize logs from various sources.</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Elasticsearch:</strong> A distributed, RESTful search and analytics engine capable of solving a growing number of use cases.</li>
+                    <li><strong>Logstash:</strong> A server-side data processing pipeline that ingests data from multiple sources simultaneously, transforms it, and then sends it to a "stash" like Elasticsearch.</li>
+                    <li><strong>Kibana:</strong> A free and open user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack.</li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Alerting</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Alertmanager:</strong> Handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration.</li>
+                    <li><strong>Opsgenie:</strong> A modern incident management platform that ensures critical alerts are never missed and notifies the right people through multiple channels.</li>
+                    <li><strong>PagerDuty:</strong> An incident management platform that provides on-call scheduling, alerting, and escalation to help teams respond to critical incidents faster.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8. Security & Compliance -->
+        <section id="security-compliance" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-shield-alt text-blue-500 mr-4"></i>Security & Compliance (DevSecOps)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">DevSecOps Principles</h3>
+                    <p class="mb-4">DevSecOps integrates security practices into every phase of the DevOps pipeline. The core principle is "shift left," meaning security is considered from the very beginning of the development process, rather than being an afterthought.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Automate security testing (SAST, DAST, SCA).</li>
+                        <li>Treat security as code.</li>
+                        <li>Implement continuous monitoring for security vulnerabilities.</li>
+                        <li>Foster a culture of shared security responsibility.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Secrets Management</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Vault (HashiCorp):</strong> A tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates.</li>
+                        <li><strong>AWS Secrets Manager:</strong> A service that helps you protect access to your applications, services, and IT resources by enabling you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Container Image Scanning</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Trivy:</strong> A comprehensive and easy-to-use vulnerability scanner for containers and other artifacts.</li>
+                    <li><strong>Anchore:</strong> Provides deep inspection, compliance, and vulnerability scanning for container images.</li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Access Control</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>IAM (Identity and Access Management):</strong> A web service that helps you securely control access to AWS resources.</li>
+                    <li><strong>Kubernetes RBAC (Role-Based Access Control):</strong> A method of regulating access to computer or network resources based on the roles of individual users within an enterprise. In Kubernetes, it allows you to define who can do what within the cluster.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 9. Cloud Providers (AWS/GCP/Azure) -->
+        <section id="cloud-providers" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-cloud text-blue-500 mr-4"></i>Cloud Providers</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">IAM & Roles</h3>
+                    <p class="mb-4">Identity and Access Management (IAM) is fundamental to cloud security. It allows you to manage access to cloud resources securely. Roles are a secure way to grant permissions to entities that you trust (e.g., EC2 instances, Lambda functions, or other AWS services) without having to manage credentials.</p>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Common Services (AWS Examples)</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>EC2 (Elastic Compute Cloud):</strong> Virtual servers in the cloud.</li>
+                        <li><strong>S3 (Simple Storage Service):</strong> Object storage for data archiving, backup, and big data analytics.</li>
+                        <li><strong>RDS (Relational Database Service):</strong> Managed relational databases (MySQL, PostgreSQL, etc.).</li>
+                        <li><strong>Lambda:</strong> Serverless compute service that runs code in response to events.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">ECS vs EKS</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>ECS (Elastic Container Service):</strong> AWS's proprietary container orchestration service. Simpler to set up for Docker containers if you are already in the AWS ecosystem.</li>
+                        <li><strong>EKS (Elastic Kubernetes Service):</strong> AWS's managed Kubernetes service. Offers the power and flexibility of Kubernetes, which is cloud-agnostic and widely adopted.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Cloud Networking (AWS Examples)</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>VPC (Virtual Private Cloud):</strong> A virtual network dedicated to your AWS account.</li>
+                        <li><strong>Subnets:</strong> Logical subdivisions of a VPC, allowing you to segment your network.</li>
+                        <li><strong>Security Groups:</strong> Act as virtual firewalls for your instances to control inbound and outbound traffic.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Cost Optimization & Tagging</h3>
+                <p class="mb-4">Efficient cloud usage involves managing costs. Tagging resources (e.g., by project, owner, environment) is crucial for cost allocation, reporting, and automation. Other strategies include right-sizing instances, utilizing reserved instances/savings plans, and monitoring spending with cloud cost management tools.</p>
+            </div>
+        </section>
+
+        <!-- 10. Version Control -->
+        <section id="version-control" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-code-branch text-blue-500 mr-4"></i>Version Control (Git)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Git Basics</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Commit:</strong> A snapshot of your repository at a specific point in time.</li>
+                        <li><strong>Branch:</strong> A lightweight movable pointer to a commit. Used to isolate development work.</li>
+                        <li><strong>Merge:</strong> Combining changes from one branch into another.</li>
+                        <li><strong>Pull Request (PR)/Merge Request (MR):</strong> A mechanism to propose changes to a repository and discuss them before merging.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Git Workflows</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Gitflow:</strong> A branching model that defines strict rules for branching and merging, often used for projects with scheduled releases. Involves `main`, `develop`, `feature`, `release`, and `hotfix` branches.</li>
+                        <li><strong>Trunk-Based Development:</strong> Developers merge small, frequent updates to a single main branch (the "trunk"). This promotes continuous integration and faster feedback.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Pull Request Best Practices</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Keep PRs small and focused on a single logical change.</li>
+                    <li>Write clear and concise descriptions, explaining "what" and "why."</li>
+                    <li>Include relevant context (e.g., linked issues, screenshots).</li>
+                    <li>Request reviews from appropriate team members.</li>
+                    <li>Respond to feedback promptly and constructively.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 11. Automation & Scripting -->
+        <section id="automation-scripting" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-robot text-blue-500 mr-4"></i>Automation & Scripting</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="overflow-x-auto">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Shell Scripting</h3>
+                    <p class="mb-4">Shell scripting (e.g., Bash) is fundamental for automating repetitive tasks on Linux/Unix systems. It's used for file operations, system administration, executing commands, and orchestrating simple workflows.</p>
+                    <pre><code class="language-bash">
+#!/bin/bash
+# Simple script to backup a directory
+SOURCE_DIR="/var/www/html"
+DEST_DIR="/mnt/backups"
+TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+BACKUP_FILE="${DEST_DIR}/web_backup_${TIMESTAMP}.tar.gz"
+
+echo "Starting backup of ${SOURCE_DIR}..."
+tar -czf "$BACKUP_FILE" "$SOURCE_DIR"
+echo "Backup complete: ${BACKUP_FILE}"
+                    </code></pre>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Ansible (Configuration Management)</h3>
+                    <p class="mb-4">Ansible is an open-source automation engine that automates provisioning, configuration management, application deployment, orchestration, and other IT needs. It's agentless, using SSH to connect to remote hosts.</p>
+                    <pre><code class="language-yaml">
+# playbook.yml
+- name: Configure web server
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+    - name: Start Nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+                    </code></pre>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Python Scripting for Automation</h3>
+                <p class="mb-4">Python is widely used in DevOps for its versatility, rich ecosystem of libraries, and readability. It's excellent for automating complex tasks, interacting with APIs (cloud providers, monitoring systems), data processing, and building custom tools.</p>
+                <pre><code class="language-python">
+# simple_api_call.py
+import requests
+
+def get_github_user_info(username):
+    url = f"https://api.github.com/users/{username}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        user_data = response.json()
+        print(f"User: {user_data['login']}")
+        print(f"Name: {user_data.get('name', 'N/A')}")
+        print(f"Public Repos: {user_data['public_repos']}")
+    else:
+        print(f"Error fetching user info: {response.status_code}")
+
+if __name__ == "__main__":
+    get_github_user_info("octocat")
+                </code></pre>
+            </div>
+        </section>
+
+        <!-- 12. Release Management & Deployment Strategies -->
+        <section id="release-management" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-rocket text-blue-500 mr-4"></i>Release Management & Deployment Strategies</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Deployment Strategies</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Rolling Update:</strong> Gradually replaces instances of the old version of an application with instances of the new version. This minimizes downtime and risk.</li>
+                        <li><strong>Recreate:</strong> Terminates all old instances before creating new ones. Simplest but causes downtime.</li>
+                        <li><strong>Blue-Green:</strong> (Reiterated from CI/CD) Maintain two identical environments; switch traffic to the new one. Zero downtime, easy rollback.</li>
+                        <li><strong>Canary:</strong> (Reiterated from CI/CD) Roll out to a small subset of users first. Gradual rollout, risk mitigation.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Feature Toggles (Feature Flags)</h3>
+                    <p class="mb-4">Feature toggles allow you to turn features on or off without deploying new code. They decouple deployment from release, enabling A/B testing, gradual rollouts, and quick rollbacks of problematic features.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Benefits:</strong> Decouple deployment from release, A/B testing, gradual rollouts, instant rollback of features, dark launching.</li>
+                        <li><strong>Implementation:</strong> Typically involves a configuration service or database that stores the state of each toggle, and application code that checks this state before executing a feature.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Real-World Case Studies -->
+        <section id="case-studies" class="section-padding bg-white rounded-lg shadow-xl mb-12 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800"><i class="fas fa-briefcase text-blue-500 mr-4"></i>Real-World Case Studies</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">CI/CD for a Spring Boot Application</h3>
+                    <p class="mb-4">A typical CI/CD pipeline for a Spring Boot application might involve:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Commit:</strong> Developer pushes code to Git (e.g., GitHub).</li>
+                        <li><strong>CI Trigger:</strong> GitHub Actions (or Jenkins/GitLab CI) detects the push.</li>
+                        <li><strong>Build:</strong> Maven/Gradle builds the JAR/WAR file.</li>
+                        <li><strong>Test:</strong> Unit, integration, and perhaps static code analysis (SonarQube) run.</li>
+                        <li><strong>Containerize:</strong> Dockerfile builds a Docker image of the Spring Boot app.</li>
+                        <li><strong>Push to Registry:</strong> Docker image is pushed to DockerHub/ECR.</li>
+                        <li><strong>CD Trigger:</strong> Successful image push triggers deployment.</li>
+                        <li><strong>Deploy:</strong> Kubernetes Deployment updates the application Pods, potentially using a rolling update strategy.</li>
+                        <li><strong>Monitor:</strong> Prometheus/Grafana monitor application health and performance.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Migrating from Monolith to Microservices</h3>
+                    <p class="mb-4">This complex process often involves:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Identify Bounded Contexts:</strong> Decompose the monolith into logical, independent services based on business capabilities.</li>
+                        <li><strong>Strangler Fig Pattern:</strong> Gradually replace parts of the monolith with new microservices, routing traffic to the new services while the old functionality is "strangled."</li>
+                        <li><strong>Data Migration/Synchronization:</strong> Carefully plan how data will be handled across services (e.g., shared database vs. separate databases, event-driven consistency).</li>
+                        <li><strong>Implement API Gateway & Service Discovery:</strong> Essential for managing communication in the new distributed system.</li>
+                        <li><strong>Automate Deployment & Monitoring:</strong> Critical for managing the increased complexity of many services.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Production-Grade Observability Practices</h3>
+                <p class="mb-4">Ensuring your production systems are observable is key to quickly identifying and resolving issues:</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Standardized Logging:</strong> Use structured logging (JSON) and centralize logs with tools like ELK or Loki.</li>
+                    <li><strong>Comprehensive Metrics:</strong> Collect metrics from applications (e.g., JVM metrics, request latency), infrastructure (CPU, memory), and network. Use Prometheus exporters.</li>
+                    <li><strong>Distributed Tracing:</strong> Implement tracing (e.g., OpenTelemetry, Jaeger) to visualize request flows across microservices.</li>
+                    <li><strong>Effective Alerting:</strong> Set up meaningful alerts based on critical metrics and logs, integrated with on-call systems (PagerDuty).</li>
+                    <li><strong>Dashboards:</strong> Create intuitive Grafana dashboards for different teams (developers, operations) to visualize system health.</li>
+                    <li><strong>Blameless Postmortems:</strong> Conduct post-incident reviews to learn from failures and improve systems and processes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Call to Action / Summary -->
+        <section class="section-padding bg-blue-600 text-white rounded-lg shadow-xl text-center fade-in">
+            <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Software Delivery?</h2>
+            <p class="text-lg mb-8">DevOps is a journey of continuous improvement. By embracing its culture, practices, and tools, organizations can achieve faster, more reliable, and more secure software releases.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="mailto:info@example.com" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">Contact Us</a>
+                <a href="#hero" class="border border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">Back to Top</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center mt-12">
+        <div class="container mx-auto">
+            <p>&copy; 2025 DevOps Demystified. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
