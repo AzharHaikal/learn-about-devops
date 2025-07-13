@@ -4,6 +4,8 @@
 
 Welcome to **DevOps Demystified**, a beautifully designed and content-rich landing page template built to help developers and designers educate, present, or showcase DevOps principles and practices. This template offers a modern, mobile-friendly layout with subtle animations and engaging visual effects, making it ideal for portfolios, learning hubs, or product documentation sites.
 
+Live demo : https://learn-about-devops.netlify.app/
+
 ---
 
 ## 🌟 Features
