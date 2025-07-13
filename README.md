@@ -23,15 +23,12 @@ Welcome to **DevOps Demystified**, a beautifully designed and content-rich landi
 ### 📦 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/devops-demystified.git
-cd devops-demystified
+git clone https://github.com/AzharHaikal/learn-about-devops.git
+cd index
 🖥️ Run Locally
 Simply open index.html (or the provided HTML file) in your browser:
 
-bash
-Salin
-Edit
-open devops-demystified.html
+open index.html
 No additional build tools or frameworks needed—it's fully self-contained.
 
 📸 Preview
@@ -39,11 +36,8 @@ No additional build tools or frameworks needed—it's fully self-contained.
 Replace screenshot.png with an actual preview image once available.
 
 📂 Project Structure
-bash
-Salin
-Edit
-devops-demystified/
-├── devops-demystified.html  # Main HTML file
+index/
+├── index.html  # Main HTML file
 ├── bg-hero.jpg              # Hero background image (make sure to include or link)
 └── README.md                # Project documentation
 📝 Attribution & License
@@ -57,9 +51,5 @@ Feel free to fork this project, open issues, or submit pull requests to make imp
 📬 Contact
 Want to collaborate or give feedback?
 📧 Email: info@example.com
-
-vbnet
-Salin
-Edit
 
 Let me know if you want the screenshot image generated, deployed instructions for GitHub Pages, or a version that includes more interactive JS behavior (like AOS).
